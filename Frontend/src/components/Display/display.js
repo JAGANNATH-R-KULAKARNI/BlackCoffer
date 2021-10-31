@@ -9,19 +9,19 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const images = [
   {
     imgPath:
-      'https://cdnb.artstation.com/p/assets/images/images/034/832/319/large/rohith-siddarth-qtlearn-dark.jpg?1613373847',
+      'https://i.ytimg.com/vi/xdlS3IWkOZY/maxresdefault.jpg',
   },
   {
     imgPath:
-      'https://wallpapercave.com/wp/wp6539315.jpg'
+      'https://www.simplilearn.com/ice9/free_resources_article_thumb/Data_Visualization_Tools.jpg'
     },
   {
     imgPath:
-      'https://www.insbright.com/wp-content/uploads/3205/study-hard-pictures.jpg',
+      'https://financialservicesblog.accenture.com/wp-content/uploads/2020/11/Data_Visualization2.jpg',
   },
   {
     imgPath:
-      'https://wallpaperaccess.com/full/816996.jpg',
+      'https://soulpageit.com/wp-content/uploads/2020/09/2020-09-14.png',
   },
 ];
 

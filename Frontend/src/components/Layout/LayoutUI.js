@@ -54,6 +54,9 @@ import SettingsUI from '../Settings/settings';
 import LanguageUI from '../ListItem/dialog';
 import { useMediaQuery } from '@mui/material';
 import RatingUI from './ratings';
+import Logo from '../../images/Blackcoffer.png';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const actions = [
   { icon: <DeleteIcon />, name: 'Delete' },
@@ -177,10 +180,10 @@ function DashboardContent() {
     <Paper elevation={0} sx={{ maxWidth: 256 }}>
       <FireNav component="nav" disablePadding>
         <ListItemButton component="a" href="#customized-list">
-          <ListItemIcon sx={{ fontSize: 20 }}>🔥</ListItemIcon>
+          <ListItemIcon sx={{ fontSize: 20 }}><img src={Logo} style={{height : 70,width : 120}}/></ListItemIcon>
           <ListItemText
             sx={{ my: 0 }}
-            primary="QtLearn"
+            primary=""
             primaryTypographyProps={{
               fontSize: 20,
               fontWeight: 'medium',
@@ -229,7 +232,7 @@ function DashboardContent() {
             >
                 {!open ? Heading : null}
             </Typography>
-            <IconButton
+          {/*   <IconButton
               edge="end"
               color="inherit"
               aria-label="open drawer"
@@ -238,8 +241,8 @@ function DashboardContent() {
                 ...(open && { display: 'none' }),
               }}
             >
-            {!open2 ?  <MenuIcon /> : <ClearIcon />}
-            </IconButton>
+           {!open2 ?  <MenuIcon /> : <ClearIcon />} 
+            </IconButton>*/}
           </Toolbar>
         </AppBar>
         : null }
@@ -290,10 +293,15 @@ function DashboardContent() {
                 >
                   chart
                 </Paper>*/}
+                <br/>
+                <br/>
                   <Display/>
               </Grid>
               {/* Recent Deposits */}
+
               <Grid item xs={12} md={4} lg={3}>
+              <br/>
+                <br/>
                 <Paper
                   sx={{
                     p: 2,
@@ -316,43 +324,46 @@ function DashboardContent() {
           />
         </ListItem>
         <Typography>
-        QtPi Robotics has built an ecosystem of over 20,000 children aged between 7-17 across India, since we started in 2016. It’s about time we pull students out of the rat race and teach them how to think instead of what to think! QtPi Robotics is doing just that!.
-        </Typography>
+          A Data Visualization Dashboard. Made with React.js Node.js Express.js MongoDB MaterialUI.
+          <br/>Variable are visualized based on Intensity,Likelihood,Relevance
+          Country,Topics,Region,City and Year. 
+          Filters are also added. 
+       </Typography>
         <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
         Social
       </Typography>
       <Link
           display="block"
           variant="body1"
-          href="https://qtpi.in/"
+          href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
           target="_blank"
           sx={{ mb: 0.5 }}
           style={{color: 'rgb(5, 30, 52)'}}
         >
           <Stack direction="row" spacing={1} alignItems="center">
-            <LanguageIcon />
-            <span>Website</span>
+            <LinkedInIcon />
+            <span>LinkedIn</span>
           </Stack>
         </Link>
         <Link
           display="block"
           variant="body1"
-          href="https://qtpi.in/#contact"
+          href="https://github.com/JAGANNATH-R-KULAKARNI"
           target="_blank"
           sx={{ mb: 0.5 }}
           style={{color: 'rgb(5, 30, 52)'}}
         >
           <Stack direction="row" spacing={1} alignItems="center">
-            <EmailIcon />
-            <span>Contact</span>
+            <GitHubIcon />
+            <span>GitHub</span>
           </Stack>
         </Link>
                 </Paper>
               </Grid>
               {/* Recent Orders */}
               <Grid item xs={12}>
-               { !openSD ? <PreviewUI/> : null}
-                <SpeedDial
+               { !openSD ? <PreviewUI/> : null} 
+                {/*<SpeedDial
         ariaLabel="SpeedDial tooltip example"
         sx={{ position: 'absolute',right : 100,top : 320 }}
         icon={<SpeedDialIcon />}
@@ -368,13 +379,13 @@ function DashboardContent() {
             tooltipOpen
           />
         ))}
-      </SpeedDial>
+        </SpeedDial>*/}
               </Grid>
             </Grid>
             <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>
-        {!openSD ?
+      {/*  {!openSD ?
         <Drawer variant="permanent" open={open2}>
           <Toolbar
             sx={{
@@ -399,6 +410,7 @@ function DashboardContent() {
           </List>
         </Drawer>
          : null }
+          */}
       </Box>
     </ThemeProvider>
     </Box>
