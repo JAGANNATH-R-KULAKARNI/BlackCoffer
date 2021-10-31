@@ -14,41 +14,15 @@ import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { mainListItems, secondaryListItems } from '../ListItem/listitem';
+import { mainListItems } from '../ListItem/listitem';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Tooltip from '@mui/material/Tooltip';
-import ArrowRight from '@mui/icons-material/ArrowRight';
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-import Home from '@mui/icons-material/Home';
-import Settings from '@mui/icons-material/Settings';
-import People from '@mui/icons-material/People';
-import PermMedia from '@mui/icons-material/PermMedia';
-import Dns from '@mui/icons-material/Dns';
-import Public from '@mui/icons-material/Public';
 import Display from '../Display/display';
-import ClearIcon from '@mui/icons-material/Clear';
 import Stack from '@mui/material/Stack';
-import PropTypes from 'prop-types';
-import LanguageIcon from '@mui/icons-material/Language';
-import EmailIcon from '@mui/icons-material/Email';
-import MainListItems2 from '../ListItem/listitem2';
 import PreviewUI from '../Preview/preview';
 import Backdrop from '@mui/material/Backdrop';
-import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import SpeedDialAction from '@mui/material/SpeedDialAction';
-import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import PrintIcon from '@mui/icons-material/Print';
-import ShareIcon from '@mui/icons-material/Share';
-import SpeedDialUI from '../speedDial/speedDial';
-import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
-import ZoomInIcon from '@mui/icons-material/ZoomIn';
-import ZoomOutIcon from '@mui/icons-material/ZoomOut';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Editor from '../Editor/editor'
 import SettingsUI from '../Settings/settings';
 import LanguageUI from '../ListItem/dialog';
@@ -57,13 +31,6 @@ import RatingUI from './ratings';
 import Logo from '../../images/Blackcoffer.png';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-
-const actions = [
-  { icon: <DeleteIcon />, name: 'Delete' },
-  { icon: <ZoomOutIcon />, name: 'ZoomOut' },
-  { icon: <ZoomInIcon />, name: 'ZoomIn' },
-  { icon: <ZoomOutMapIcon />, name: 'Reset' },
-];
 
 
 const FireNav = styled(List)({
@@ -147,8 +114,6 @@ function DashboardContent() {
   const [settingsStatus,setSettingsStatus]=React.useState(false);
   const [lanStatus, setLanStatus] = React.useState(false);
   const [openSD, setOpenSD] = React.useState(false);
-  const handleOpenSD = () => setOpenSD(true);
-  const handleCloseSD = () => setOpenSD(false);
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -156,9 +121,6 @@ function DashboardContent() {
 
   const [open2,setOpen2]=React.useState(false);
 
-  const toggleDrawer2=()=>{
-    setOpen2(!open2);
-  };
   const matches = useMediaQuery('(min-width:414px)');
   const Heading=(
     <ThemeProvider
@@ -208,7 +170,7 @@ function DashboardContent() {
        {!openSD ? <AppBar position="absolute" open={open} style={{backgroundColor : 'rgb(5, 30, 52)'}}>
           <Toolbar
             sx={{
-              pr: '24px', // keep right padding when drawer closed
+              pr: '24px', 
             }}
           >
             <IconButton
@@ -232,17 +194,6 @@ function DashboardContent() {
             >
                 {!open ? Heading : null}
             </Typography>
-          {/*   <IconButton
-              edge="end"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer2}
-              sx={{
-                ...(open && { display: 'none' }),
-              }}
-            >
-           {!open2 ?  <MenuIcon /> : <ClearIcon />} 
-            </IconButton>*/}
           </Toolbar>
         </AppBar>
         : null }
@@ -283,22 +234,10 @@ function DashboardContent() {
             <Grid container spacing={3}>
               
               <Grid item xs={12} md={8} lg={9}>
-                {/*<Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  chart
-                </Paper>*/}
                 <br/>
                 <br/>
                   <Display/>
               </Grid>
-              {/* Recent Deposits */}
-
               <Grid item xs={12} md={4} lg={3}>
               <br/>
                 <br/>
@@ -324,7 +263,7 @@ function DashboardContent() {
           />
         </ListItem>
         <Typography>
-          A Data Visualization Dashboard. Made with React.js Node.js Express.js MongoDB MaterialUI.
+          A Data Visualization Dashboard, made with React.js, Node.js, Express.js, MongoDB, MaterialUI.
           <br/>Variable are visualized based on Intensity,Likelihood,Relevance
           Country,Topics,Region,City and Year. 
           Filters are also added. 
@@ -360,57 +299,13 @@ function DashboardContent() {
         </Link>
                 </Paper>
               </Grid>
-              {/* Recent Orders */}
               <Grid item xs={12}>
-               { !openSD ? <PreviewUI/> : null} 
-                {/*<SpeedDial
-        ariaLabel="SpeedDial tooltip example"
-        sx={{ position: 'absolute',right : 100,top : 320 }}
-        icon={<SpeedDialIcon />}
-        onClose={handleCloseSD}
-        onOpen={handleOpenSD}
-        open={openSD}
-      >
-        {actions.map((action) => (
-          <SpeedDialAction
-            key={action.name}
-            icon={action.icon}
-            tooltipTitle={action.name}
-            tooltipOpen
-          />
-        ))}
-        </SpeedDial>*/}
+               { !openSD ? null : null} 
               </Grid>
             </Grid>
             <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>
-      {/*  {!openSD ?
-        <Drawer variant="permanent" open={open2}>
-          <Toolbar
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              px: [1],
-              backgroundColor : 'rgb(5, 30, 52)'
-            }}
-          >
-            {Heading}
-            <IconButton onClick={toggleDrawer2} style={{color : 'rgba(255,255,255,.8)'}}>
-              <ChevronLeftIcon />
-            </IconButton>
-          </Toolbar>
-        <List style={{color : 'rgba(255,255,255,.8)'}}>
-          <MainListItems2 
-          setEditorStatus={setEditorStatus}
-          setSettingsStatus={setSettingsStatus}
-          setLanStatus={setLanStatus}
-          />
-          </List>
-        </Drawer>
-         : null }
-          */}
       </Box>
     </ThemeProvider>
     </Box>
