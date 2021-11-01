@@ -28,10 +28,10 @@ import SettingsUI from '../Settings/settings';
 import LanguageUI from '../ListItem/dialog';
 import { useMediaQuery } from '@mui/material';
 import RatingUI from './ratings';
-import Logo from '../../images/Blackcoffer.png';
+import Logo from '../../images/qtpi.png';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-
+import ButtonGroupUI from './buttonGroup';
 
 const FireNav = styled(List)({
   '& .MuiListItemButton-root': {
@@ -50,10 +50,11 @@ const FireNav = styled(List)({
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-    <Link color="inherit" target="_blank" href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile">
-      Jagannath R Kulakarni
-    </Link>{' '}
-    {'.'}
+    {/* <Link color="inherit" target="_blank" href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"> */}
+      Terms and Conditions
+    {' '}
+    <br/>
+    {'please read terms and conditions carefully'}
     <br/>
     <br/>
     <RatingUI/>
@@ -108,6 +109,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 const mdTheme = createTheme();
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 function DashboardContent() {
   const [editorStatus,setEditorStatus]=React.useState(false);
@@ -135,14 +142,14 @@ function DashboardContent() {
       palette: {
         mode: 'dark',
         primary: { main: 'rgb(102, 157, 246)' },
-        background: { paper: 'rgb(5, 30, 52)' },
+        background: { paper: 'white' },
       },
     })}
   >
     <Paper elevation={0} sx={{ maxWidth: 256 }}>
       <FireNav component="nav" disablePadding>
         <ListItemButton component="a" href="#customized-list">
-          <ListItemIcon sx={{ fontSize: 20 }}><img src={Logo} style={{height : 70,width : 120}}/></ListItemIcon>
+          <ListItemIcon sx={{ fontSize: 20 }}><img src={Logo} style={{height : 55,width : 90}}/></ListItemIcon>
           <ListItemText
             sx={{ my: 0 }}
             primary=""
@@ -167,24 +174,12 @@ function DashboardContent() {
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-       {!openSD ? <AppBar position="absolute" open={open} style={{backgroundColor : 'rgb(5, 30, 52)'}}>
+       {!openSD ? <AppBar position="absolute" open={open} style={{backgroundColor : 'white'}} elevation={0}>
           <Toolbar
             sx={{
-              pr: '24px', 
+              pr: '0px', 
             }}
           >
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer}
-              sx={{
-                marginRight: '36px',
-                ...(open && { display: 'none' }),
-              }}
-            >
-             { !open2 ?<MenuIcon /> : null}            
-             </IconButton>
             <Typography
               component="h1"
               variant="h6"
@@ -194,10 +189,11 @@ function DashboardContent() {
             >
                 {!open ? Heading : null}
             </Typography>
+            <ButtonGroupUI/>
           </Toolbar>
         </AppBar>
         : null }
-       {!openSD ? 
+      {/* {!openSD ? 
         <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
@@ -205,7 +201,7 @@ function DashboardContent() {
               alignItems: 'center',
               justifyContent: 'flex-end',
               px: [1],
-              backgroundColor : 'rgb(5, 30, 52)'
+              backgroundColor : 'white'
             }}
           >
             {Heading}
@@ -215,32 +211,40 @@ function DashboardContent() {
           </Toolbar>
         <List style={{color : 'rgba(255,255,255,.8)'}}>{mainListItems}</List>
         </Drawer>
-        : null }
+          : null }*/}
         <Box
           component="main"
           sx={{
             backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
+            theme.palette.mode === 'light'
+              ? theme.palette.grey[100]
+              : theme.palette.grey[900],
             flexGrow: 1,
             height: '100vh',
             overflow: 'auto',
           }}
         >
           <Toolbar />
-        
+          <div style={{display: 'flex', flexDirection:'row'}}>
+          <Display/>
+          {/* <Display/> */}
+            </div>
+          
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              
-              <Grid item xs={12} md={8} lg={9}>
-                <br/>
-                <br/>
-                  <Display/>
+            <Grid container spacing={2}>
+            <Grid item xs={12} md={8} lg={9}>
+                {/*<Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  chart
+                </Paper>*/}
               </Grid>
-              <Grid item xs={12} md={4} lg={3}>
-              <br/>
-                <br/>
+             {/* <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
                     p: 2,
@@ -298,7 +302,7 @@ function DashboardContent() {
           </Stack>
         </Link>
                 </Paper>
-              </Grid>
+          </Grid>*/}
               <Grid item xs={12}>
                { !openSD ? null : null} 
               </Grid>

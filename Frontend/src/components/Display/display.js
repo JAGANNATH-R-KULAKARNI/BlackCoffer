@@ -3,8 +3,27 @@ import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import BackGroundGB from './greenB.jpeg';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Kit from './kitbox.png';
+import PaymentUI from '../payment/payment';
+import Link from '@mui/material/Link';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+const styles = {
+  paperContainer: {
+      height : 600,
+      width : 800,
+      backgroundImage: `url(${BackGroundGB})`,
+      backgroundColor : 'white',
+      backgroundSize: '800px 600px',
+      backgroundRepeat: 'noRepeat',
+  },
+};
 
 const images = [
   {
@@ -34,32 +53,51 @@ function SwipeableTextMobileStepper() {
   };
 
   return (
-    <Box sx={{ maxWidth: 800, flexGrow: 1 }}>
-      <AutoPlaySwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-      >
-        {images.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  height: 355,
-                  display: 'block',
-                  maxWidth: 800,
-                  overflow: 'hidden',
-                  width: '100%',
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
-            ) : null}
-          </div>
-        ))}
-      </AutoPlaySwipeableViews>
+    <Box sx={{  flexGrow: 1 }} style={{backgroundImage : <BackGroundGB/>}}>
+    <Grid container spacing={2}>
+        <Grid item xs={6}>
+          {/* <img src={BackGroundGB} style={{height : 600,width : 850}}></img> */}
+          <Paper style={styles.paperContainer} elevation={0}>
+            <br/>
+            <br/>
+          <Grid container spacing={2}>
+  <Grid item xs={1}>
+    
+  </Grid>
+  <Grid item xs={10}>
+  <Typography variant="h3" component="h1" gutterBottom color="white">
+          Buy Kit
+        </Typography>
+        <Typography variant="h6" component="h6" gutterBottom color="white"> 
+          {'Imagination will be the only blockers in the sim world. '}
+          {'Unlock the creativity. You just need to think how & what to do.'}
+          {' Connect with the worlds best Robotics '}
+          {'community to solve the real world problems'}
+         
+        </Typography>
+        <a target="_blank" href="https://qtpi.in/" style={{color : "white"}}>Read More --> </a>
+  </Grid>
+  <Grid item xs={1}>
+  </Grid>
+</Grid>
+<Grid container spacing={2}>
+  <Grid item xs={3}>
+  <img src={Kit} />
+  </Grid>
+  <Grid item xs={8}>
+
+  </Grid>
+  <Grid item xs={1}>
+  </Grid>
+</Grid>
+            </Paper>
+        </Grid>
+        <Grid item xs={6}>
+        <PaymentUI/>
+        </Grid>
+      </Grid>
+
+    {/* <BoxUI/> */}
     </Box>
   );
 }
